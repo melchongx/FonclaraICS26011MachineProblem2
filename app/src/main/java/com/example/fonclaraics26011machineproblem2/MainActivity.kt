@@ -1,9 +1,14 @@
 package com.example.fonclaraics26011machineproblem2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
+import androidx.recyclerview.widget.RecyclerView
 import com.example.fonclaraics26011machineproblem2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,12 +17,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         setContentView(R.layout.activity_main)
 
-
+        val RecView = findViewById<RecyclerView>(R.id.recyclerView)
+        val addEntry = findViewById<ImageButton>(R.id.btnAddEntry)
+        addEntry.setOnClickListener {
+            val intent = Intent(this, AddEntry::class.java)
+            startActivity(intent)
+        }
     }
     override fun onStart() {
         super.onStart()
